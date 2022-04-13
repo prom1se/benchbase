@@ -2,8 +2,8 @@
 <parameters>
 
     <!-- Connection details -->
-    <type>IGNITE3</type>
-    <driver>org.apache.ignite.jdbc.IgniteJdbcDriver</driver>
+    <type>IGNITE2</type>
+    <driver>org.apache.ignite.IgniteJdbcThinDriver</driver>
     <url>jdbc:ignite:thin://127.0.0.1:10800</url>
 <!--    <username>admin</username>-->
 <!--    <password>password</password>-->
@@ -36,7 +36,7 @@
         <work>
             <time>60</time>
             <rate>unlimited</rate>
-            <weights>1,0,1,0,1,0,1,0,1z,0,0,0,1,0,0,0,1,0,1,0,1,0</weights>
+            <weights>1,0,1,0,1,0,1,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0</weights>
         </work>
     </works>
 

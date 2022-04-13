@@ -42,12 +42,11 @@ public class TPCHWorker extends Worker<TPCHBenchmark> {
         try {
             GenericQuery proc = (GenericQuery) this.getProcedure(nextTransaction.getProcedureClass());
             proc.run(conn, rand);
-            System.out.println("Finish " + proc);
         } catch (ClassCastException e) {
             throw new RuntimeException(e);
         }
 
-        return (TransactionStatus.SUCCESS);
+        return TransactionStatus.SUCCESS;
 
     }
 }
