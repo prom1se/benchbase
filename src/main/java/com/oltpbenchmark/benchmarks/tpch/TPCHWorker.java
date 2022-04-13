@@ -44,6 +44,7 @@ public class TPCHWorker extends Worker<TPCHBenchmark> {
 //            if (proc.getClass().getName().endsWith("Q11") || proc.getClass().getName().endsWith("Q15"))
 //                return TransactionStatus.SUCCESS;
             proc.run(conn, rand);
+            System.out.println("Finish " + proc);
         } catch (ClassCastException e) {
             throw new RuntimeException(e);
         }
