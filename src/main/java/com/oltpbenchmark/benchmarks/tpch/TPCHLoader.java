@@ -144,8 +144,8 @@ public class TPCHLoader extends Loader<TPCHBenchmark> {
     private boolean loadCopy(Connection conn) {
         DatabaseType dbType = this.workConf.getDatabaseType();
         switch (dbType) {
-            case POSTGRES:
-                return CopyUtil.copyPOSTGRES(workConf, conn, LOG);
+            //case POSTGRES:
+            //    return CopyUtil.copyPOSTGRES(workConf, conn, LOG);
             case MARIADB:
             case MYSQL:
                 return CopyUtil.copyMYSQL(workConf, conn, LOG);

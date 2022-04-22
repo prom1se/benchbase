@@ -69,10 +69,4 @@ public class Q3 extends GenericQuery {
         stmt.setLong(3, Date.valueOf(date).getTime());
         return stmt;
     }
-
-    public static void main(String[] args) {
-        int day = 22;
-        String date = String.format("1995-03-%02d", day);
-        System.out.println(Date.valueOf(date).getTime());
-    }
 }

@@ -269,7 +269,7 @@ public class OrderStatus extends TPCCProcedure {
             }
         }
 
-        if (customers.size() == 0) {
+        if (customers.isEmpty()) {
             String msg = String.format("Failed to get CUSTOMER [C_W_ID=%d, C_D_ID=%d, C_LAST=%s]", c_w_id, c_d_id, c_last);
 
             throw new RuntimeException(msg);

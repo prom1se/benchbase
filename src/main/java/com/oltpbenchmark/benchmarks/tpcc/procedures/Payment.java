@@ -433,9 +433,9 @@ public class Payment extends TPCCProcedure {
 
         try (PreparedStatement payGetCust = this.getPreparedStatement(conn, payGetCustSQL)) {
 
-            payGetCust.setInt(1, c_w_id);
-            payGetCust.setInt(2, c_d_id);
-            payGetCust.setInt(3, c_id);
+            payGetCust.setLong(1, c_w_id);
+            payGetCust.setLong(2, c_d_id);
+            payGetCust.setLong(3, c_id);
 
             try (ResultSet rs = payGetCust.executeQuery()) {
                 if (!rs.next()) {
@@ -474,7 +474,7 @@ public class Payment extends TPCCProcedure {
             }
         }
 
-        if (customers.size() == 0) {
+        if (customers.isEmpty()) {
             throw new RuntimeException("C_LAST=" + customerLastName + " C_D_ID=" + c_d_id + " C_W_ID=" + c_w_id + " not found!");
         }
 
