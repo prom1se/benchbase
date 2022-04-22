@@ -26,12 +26,12 @@
         <work>
             <time>60</time>
             <rate>unlimited</rate>
-            <weights>1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1</weights>
+            <weights>1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,0</weights>
         </work>
         <work>
             <time>60</time>
             <rate>unlimited</rate>
-            <weights>0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1</weights>
+            <weights>0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0</weights>
         </work>
         <work>
             <time>60</time>

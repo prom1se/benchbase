@@ -38,7 +38,7 @@ public class Q9 extends GenericQuery {
                     + "select "
                     + "n_name as nation, "
                     //+ "extract(year from o_orderdate) as o_year, "
-                    + "o_orderdate / 31536000 as o_year, "
+                    + "floor(o_orderdate / (cast (365 as bigint) * 86400000)) as o_year, "
                     + "l_extendedprice * (1 - l_discount) - ps_supplycost * l_quantity as amount "
                     + "from "
                     + "part, "

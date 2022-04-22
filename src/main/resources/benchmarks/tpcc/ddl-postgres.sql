@@ -88,7 +88,7 @@ CREATE TABLE customer (
     c_state        char(2)        NOT NULL,
     c_zip          char(9)        NOT NULL,
     c_phone        char(16)       NOT NULL,
-    c_since        timestamp      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    c_since        bigint         NOT NULL,
     c_middle       char(2)        NOT NULL,
     c_data         varchar(500)   NOT NULL,
     FOREIGN KEY (c_w_id, c_d_id) REFERENCES district (d_w_id, d_id) ON DELETE CASCADE,
@@ -96,12 +96,13 @@ CREATE TABLE customer (
 );
 
 CREATE TABLE history (
+    h_id     bigint        NOT NULL,
     h_c_id   int           NOT NULL,
     h_c_d_id int           NOT NULL,
     h_c_w_id int           NOT NULL,
     h_d_id   int           NOT NULL,
     h_w_id   int           NOT NULL,
-    h_date   timestamp     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    h_date   bigint        NOT NULL,
     h_amount decimal(6, 2) NOT NULL,
     h_data   varchar(24)   NOT NULL,
     FOREIGN KEY (h_c_w_id, h_c_d_id, h_c_id) REFERENCES customer (c_w_id, c_d_id, c_id) ON DELETE CASCADE,
@@ -116,7 +117,7 @@ CREATE TABLE oorder (
     o_carrier_id int                DEFAULT NULL,
     o_ol_cnt     int       NOT NULL,
     o_all_local  int       NOT NULL,
-    o_entry_d    timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    o_entry_d    bigint    NOT NULL,
     PRIMARY KEY (o_w_id, o_d_id, o_id),
     FOREIGN KEY (o_w_id, o_d_id, o_c_id) REFERENCES customer (c_w_id, c_d_id, c_id) ON DELETE CASCADE,
     UNIQUE (o_w_id, o_d_id, o_c_id, o_id)
@@ -126,6 +127,7 @@ CREATE TABLE new_order (
     no_w_id int NOT NULL,
     no_d_id int NOT NULL,
     no_o_id int NOT NULL,
+    no_val  smallint,
     FOREIGN KEY (no_w_id, no_d_id, no_o_id) REFERENCES oorder (o_w_id, o_d_id, o_id) ON DELETE CASCADE,
     PRIMARY KEY (no_w_id, no_d_id, no_o_id)
 );
@@ -136,7 +138,7 @@ CREATE TABLE order_line (
     ol_o_id        int           NOT NULL,
     ol_number      int           NOT NULL,
     ol_i_id        int           NOT NULL,
-    ol_delivery_d  timestamp     NULL DEFAULT NULL,
+    ol_delivery_d  bigint        NULL DEFAULT NULL,
     ol_amount      decimal(6, 2) NOT NULL,
     ol_supply_w_id int           NOT NULL,
     ol_quantity    decimal(6,2)  NOT NULL,
